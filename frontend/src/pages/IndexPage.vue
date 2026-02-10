@@ -5,6 +5,7 @@
         <div class="col">
           <div class="text-h3 text-weight-bold text-primary">My Tasks in 2026</div>
           <div class="text-subtitle1 text-grey-7">Fullstack Lab: Express + Prisma + Supabase with CI/CD</div>
+          <div class="text-subtitle2 text-black-7">ชื่อ: ธีรภัทร พอจิต | รหัส: 6604101339</div>
         </div>
         <div class="col-auto">
           <q-btn
