@@ -1,17 +1,33 @@
 <template>
   <q-page padding class="bg-grey-1">
     <div class="container q-mx-auto" style="max-width: 800px">
-      <div class="row items-center q-mb-xl">
-        <div class="col">
-          <div class="text-h3 text-weight-bold text-primary">My Tasks in 2026</div>
-          <div class="text-subtitle1 text-grey-7">Fullstack Lab: Express + Prisma + Supabase with CI/CD</div>
-          <div class="text-subtitle2 text-black-7">ชื่อ: ธีรภัทร พอจิต | รหัส: 6604101339</div>
-        </div>
-        <div class="col-auto">
+
+      <div class="q-mb-md">
+        <div class="text-h3 text-weight-bold text-primary">My Tasks in 2026</div>
+        <div class="text-subtitle1 text-grey-7">Fullstack Lab: Express + Prisma + Supabase with CI/CD</div>
+      </div>
+
+      <div class="row items-start q-mb-xl" style="gap: 16px;">
+
+        <q-card flat bordered class="col" style="border-radius: 8px;">
+          <q-card-section>
+            <div class="text-h6 text-primary text-bold">นายธีรภัทร พอจิต</div>
+            <div class="text-subtitle2 text-grey-8">Code: 6604101339</div>
+          </q-card-section>
+
+          <q-separator />
+
+          <q-card-section class="bg-grey-1 text-italic text-grey-7" style="padding: 12px 16px;">
+            "Every line is a responsibility, every work is an honor"
+          </q-card-section>
+        </q-card>
+
+        <div class="q-pt-sm">
           <q-btn
             round
             color="primary"
             icon="refresh"
+            size="md"
             :loading="loading"
             @click="fetchTasks"
           >
@@ -19,7 +35,6 @@
           </q-btn>
         </div>
       </div>
-
       <div v-if="errorMessage" class="q-mb-md">
         <q-banner dense rounded class="bg-red-1 text-negative">
           <template v-slot:avatar>
@@ -99,7 +114,7 @@ const fetchTasks = async () => {
 
   try {
     const res = await api.get('/tasks');
-    tasks.value = res.data.data; // backend ส่ง { data: [...] }
+    tasks.value = res.data.data;
   } catch (err) {
     console.error('API Error:', err);
     const status = err.response ? err.response.status : 'Network Error';
